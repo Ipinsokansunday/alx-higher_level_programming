@@ -7,8 +7,8 @@ if __name__ == "__main__":
         print("0 arguments.")
     else:
         print("{:d} argument".format(num_args), end="")
-	if num_args > 1:
-	    print("s", end="")
-	    print(":")
-	for i in range(1, len(sys.argv)):
-	    print("{:d}: {:s}".format(i, sys.argv[i]))
+    if num_args > 1:
+        print("s", end="")
+        print(":")
+    for i in range(1, len(sys.argv)):
+        print("{:d}: {:s}".format(i, sys.argv[i]))
