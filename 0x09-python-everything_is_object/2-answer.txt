@@ -1,2 +1,1 @@
-#!/usr/bin/python3
-# Do a and b point to the same object? Answer: No
+No
