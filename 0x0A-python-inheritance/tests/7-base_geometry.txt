@@ -1,0 +1,32 @@
+============================================
+Test file for task 7 called use 7-base_geometry.py
+============================================
+
+ ''integer_validator()''.
+
+# test_7_base_geometry.txt
+
+# Import the BaseGeometry class
+>>> from 7-base_geometry import BaseGeometry
+
+# Create an instance of BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test integer_validator with a positive integer
+>>> bg.integer_validator("my_int", 12)
+True
+
+# Test integer_validator with a negative integer
+>>> bg.integer_validator("number", -12)
+Traceback (most recent call last):
+  ValueError: number must be greater than 0
+
+# Test integer_validator with 3 arguments
+>>> bg.integer_validator("numbers", 0, 1)
+Traceback (most recent call last):
+  TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+# Test integer_validator with an invalid infinite integer
+>>> bg.integer_validator("infnumber", float('inf'))
+Traceback (most recent call last):
+  ValueError: invalid literal for int() with base 10: 'inf'
