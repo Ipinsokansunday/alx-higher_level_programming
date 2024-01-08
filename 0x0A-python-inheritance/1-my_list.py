@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Module with class MyList"""
 class MyList(list):
     """Custom list class that inherits from the built-in list class."""
 
