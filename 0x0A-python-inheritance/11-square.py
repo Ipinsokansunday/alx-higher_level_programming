@@ -1,28 +1,30 @@
-#!/usr/bin/python3
-"""Module with a class MyInt"""
+!/usr/bin/python3
+"""Module with class Square"""
 
 
-class MyInt(int):
-    """Class that inherits from int"""
+Rectangle = __import__('9-rectangle').Rectangle
 
-    def __init__(self, my_int):
-        """Initialize a value my_int"""
-        self.my_int = my_int
 
-    @property
-    def my_int(self):
-        return self.__my_int
+class Square(Rectangle):
+    """
+    Square class that inherits from Rectangle.
 
-    @my_int.setter
-    def my_int(self, my_int):
-        if not isinstance(my_int, int):
-            raise TypeError("my_int must be an integer")
-        self.__my_int = my_int
+    Attributes:
+        __size (int): Size of the square.
+    """
 
-    def __eq__(self, other):
-        """Equal method"""
-        return self.my_int != other
+    def __init__(self, size):
+        """
+        Initialize a Square instance with a given size.
 
-    def __ne__(self, other):
-        """Not equal method"""
-        return self.my_int == other
+        Args:
+            size (int): The size of the square.
+            Must be a positive integer.
+        """
+        super().__init__(size, size)
+        self.integer_validator("size", size)
+        self.__size = size
+
+    def __str__(self):
+        """Return the string representation of the square."""
+        return "[Square] {}/{}".format(self.__size, self.__size)
