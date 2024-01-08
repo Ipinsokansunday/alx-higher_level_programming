@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """module with method is_same_class"""
+
+
 def is_same_class(obj, a_class):
     """
     Check if the object is exactly
