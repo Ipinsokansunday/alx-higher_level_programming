@@ -1,0 +1,75 @@
+# 1-my_list.txt
+
+# Import the MyList class
+>>> from your_script_name import MyList
+
+# Create an instance of MyList
+>>> my_list = 1-my_list()
+
+# Test isinstance to ensure my_list is an instance of list
+>>> isinstance(my_list, list)
+True
+
+# Test print_sorted on an empty list
+>>> my_list.print_sorted()
+[]
+
+# Adding items to the list
+>>> my_list.append(7)
+>>> my_list.append(3)
+>>> my_list.append(1)
+
+# Test print_sorted with positive integers
+>>> my_list.print_sorted()
+[1, 3, 7]
+
+# Add zero values to the list
+>>> my_list.append(0)
+
+# Test print_sorted with zero values
+>>> my_list.print_sorted()
+[0, 1, 3, 7]
+
+# Attempt to add infinite integer (will raise a ValueError)
+>>> my_list.append(float('inf'))
+Traceback (most recent call last):
+  ValueError: invalid literal for int() with base 10: 'inf'
+
+# Add negative values to the list
+>>> my_list.append(-15)
+
+# Test print_sorted with negative values
+>>> my_list.print_sorted()
+[-15, 0, 1, 3, 7]
+
+# Repeat an element in the list
+>>> my_list.append(-15)
+>>> my_list.append(0)
+>>> my_list.append(7)
+
+# Test print_sorted when repeating elements
+>>> my_list.print_sorted()
+[-15, -15, 0, 0, 1, 3, 7, 7]
+
+# Test print_sorted when all elements in the list are the same
+>>> my_list.clear()
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[5, 5, 5, 5, 5]
+
+# Test print_sorted with a large integer
+>>> my_list.append(10000000000000000000000000000000000000000000)
+
+# Test print_sorted with None value (will raise a TypeError)
+>>> my_list.append(None)
+Traceback (most recent call last):
+  TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+# Test print_sorted with NULL value (will raise a NameError)
+>>> my_list.append(NULL)
+Traceback (most recent call last):
+  NameError: name 'NULL' is not defined
