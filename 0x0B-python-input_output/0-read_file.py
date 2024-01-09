@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""function that reads a text file"""
 
 
 def read_file(filename):
@@ -10,15 +11,5 @@ def read_file(filename):
     Returns:
         None
     """
-    if not filename:
-        print("Error: Please provide a valid filename.")
-        return
-
-    try:
-        with open(filename, "r", encoding="UTF-8") as file:
-            content = file.read()
-            print(content, end="")
-    except FileNotFoundError:
-        print(f"Error: File '{filename}' not found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    with open(filename, "r", encoding="UTF-8") as f:
+        print(f.read(), end="")
