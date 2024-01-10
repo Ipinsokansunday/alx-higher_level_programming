@@ -1,0 +1,149 @@
+#!/usr/bin/python3
+"""Unittests for matrix_mul([[..], [..]])."""
+
+import unittest
+from typing import List
+from matrix_mul import matrix_mul
+
+
+class TestMatrixMultiplication(unittest.TestCase):
+    """Define unittests for matrix_mul([[..], [..]])."""
+
+    def test_ordered_matrices(self):
+        """Test multiplication of two ordered matrices."""
+        m_a: List[List[int]] = [
+            [1, 2],
+            [3, 4],
+        ]
+        m_b: List[List[int]] = m_a
+        self.assertEqual(matrix_mul(m_a, m_b), [[7, 10], [15, 22]])
+
+    def test_single_element_matrices(self):
+        """Test multiplication of matrices with a single element."""
+        m_a: List[List[int]] = [[1, 2]]
+        m_b: List[List[int]] = [[3, 4], [5, 6]]
+        self.assertEqual(matrix_mul(m_a, m_b), [[13, 16]])
+
+    def test_matrices_with_floats(self):
+        """Test multiplication of matrices with floats."""
+        m_a: List[List[float]] = [
+            [1.2, 5.5, 6.2],
+            [4.66, 12.3, -9.2],
+        ]
+        m_b: List[List[float]] = [
+            [5.0, 3.3],
+            [-2.9, 4.4],
+            [7.2, 4.4],
+        ]
+        self.assertEqual(matrix_mul(m_a, m_b), [[34.69, 55.44], [-78.61, 29.018]])
+
+    def test_matrices_with_ints_and_floats(self):
+        """Test multiplication of matrices with ints and floats."""
+        m_a: List[List[float]] = [
+            [1, 2.2, 3.3, 4],
+            [5, 6, 7, 8.8],
+        ]
+        m_b: List[List[float]] = [
+            [1.1, 2, 3.3],
+            [4.0, 5.5, 6],
+            [7, 8, 9],
+            [10.01, 11, 12.3],
+        ]
+        self.assertEqual(matrix_mul(m_a, m_b), [[73.04, 84.5, 95.4], [166.59, 195.8, 223.74]])
+
+    def test_missing_arguments(self):
+        """Test if the function raises TypeError for missing arguments."""
+        with self.assertRaises(TypeError):
+            matrix_mul()
+
+    def test_invalid_matrices(self):
+        """Test if the function raises ValueError for invalid matrices."""
+        m_a: List[List[int]] = [
+            [1, 2],
+            [3, 4],
+        ]
+        m_b: List[List[int]] = [
+            [1, 2],
+            [2, 3],
+            [4, 5],
+        ]
+        with self.assertRaises(ValueError):
+            matrix_mul(m_a, m_b)
+
+        with self.assertRaises(ValueError):
+            matrix_mul([], [[1, 2]])
+
+        with self.assertRaises(ValueError):
+            matrix_mul([[1, 2]], [[]])
+
+        with self.assertRaises(ValueError):
+            matrix_mul([[]], [])
+
+    def test_invalid_matrix_types(self):
+        """Test if the function raises TypeError for invalid matrix types."""
+        with self.assertRaises(TypeError):
+            matrix_mul("not a list", [[1, 2]])
+
+        with self.assertRaises(TypeError):
+            matrix_mul([[1, 2]], "also not a list")
+
+        with self.assertRaises(TypeError):
+            matrix_mul("not a list", "also not a list")
+
+        with self.assertRaises(TypeError):
+            matrix_mul(None, None)
+
+        with self.assertRaises(TypeError):
+            matrix_mul([1, 2], [[3, 4]])
+
+        with self.assertRaises(TypeError):
+            matrix_mul([[1, 2]], [3, 4])
+
+        with self.assertRaises(TypeError):
+            matrix_mul([1, 2], [3, 4])
+
+        with self.assertRaises(TypeError):
+            matrix_mul([[1, "non-number"]], [[3, 4]])
+
+        with self.assertRaises(TypeError):
+            matrix_mul([[1, 2]], [[{"a": 1}, 8.8]])
+
+        with self.assertRaises(TypeError):
+            matrix_mul([[1, "non-number"]], [[{"a": 1}, 8.8]])
+
+    def test_invalid_matrix_sizes(self):
+        """Test if the function raises TypeError for invalid matrix sizes."""
+        m_a: List[List[int]] = [
+            [1, 2],
+            [3, 4, 5],
+        ]
+        m_b: List[List[int]] = [
+            [1, 2],
+            [3, 4],
+        ]
+        with self.assertRaises(TypeError):
+            matrix_mul(m_a, m_b)
+
+        m_a: List[List[int]] = [
+            [1, 2],
+            [3, 4],
+        ]
+        m_b: List[List[int]] = [
+            [1, 2],
+            [3, 4, 5],
+        ]
+        with self.assertRaises(TypeError):
+            matrix_mul(m_a, m_b)
+
+        m_a: List[List[int]] = [
+            [1, 2],
+            [3, 4, 5],
+        ]
+        m_b: List[List[int]] = m_a
+        with self.assertRaises(TypeError):
+            matrix_mul(m_a, m_b)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
