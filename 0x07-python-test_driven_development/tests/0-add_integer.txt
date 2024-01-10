@@ -1,0 +1,123 @@
+The ``0-add_integer`` Test Module
+=================================
+
+Using ``add_integer``
+---------------------
+
+This file is in restructured text format. First, import ``add_integer`` from the ``0-add_integer`` module:
+
+.. code-block:: python
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Basic test cases:
+
+1. Addition of two integers:
+
+.. code-block:: python
+
+    >>> add_integer(0, 0)
+    0
+
+2. Addition of integer and default value:
+
+.. code-block:: python
+
+    >>> add_integer(15, 0)
+    15
+
+3. Addition of default value and integer:
+
+.. code-block:: python
+
+    >>> add_integer(0, 15)
+    15
+
+4. Addition of negative and positive integers:
+
+.. code-block:: python
+
+    >>> add_integer(-2, 2)
+    0
+
+5. Addition of positive and negative integers:
+
+.. code-block:: python
+
+    >>> add_integer(2, -2)
+    0
+
+6. Single integer argument with default value:
+
+.. code-block:: python
+
+    >>> add_integer(2)
+    100
+
+Error handling:
+
+7. Missing required positional argument:
+
+.. code-block:: python
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+8. Non-integer arguments:
+
+.. code-block:: python
+
+    >>> add_integer('a', 'b')
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+9. Non-integer and integer arguments:
+
+.. code-block:: python
+
+    >>> add_integer('a', 42)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+10. Single non-integer argument:
+
+.. code-block:: python
+
+    >>> add_integer('a')
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+11. Integer and non-integer arguments:
+
+.. code-block:: python
+
+    >>> add_integer(42, 'b')
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Special cases:
+
+12. Overflow with infinity:
+
+.. code-block:: python
+
+    >>> add_integer(float('inf'), 0)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+13. NaN value:
+
+.. code-block:: python
+
+    >>> add_integer(0, float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
