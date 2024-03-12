@@ -1,17 +1,17 @@
 #!/usr/bin/node
-const SquareP = require('./5-square');
+const SquareParent = require('./5-square');
 
-class Square extends SquareP {
-  charPrint (c) {
+class Square extends SquareParent {
+  charPrint(c) {
     if (c === undefined) {
       c = 'X';
     }
     for (let i = 0; i < this.height; i++) {
-      let s = '';
+      let line = '';
       for (let j = 0; j < this.width; j++) {
-        s += c;
+        line += c;
       }
-      console.log(s);
+      console.log(line);
     }
   }
 }
