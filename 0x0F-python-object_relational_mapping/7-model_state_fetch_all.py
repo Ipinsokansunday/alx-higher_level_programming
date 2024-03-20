@@ -1,4 +1,3 @@
-7-model_state_fetch_all.py
 #!/usr/bin/python3
 """Start link class to table in database
 """
